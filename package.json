@@ -1,0 +1,42 @@
+{
+  "name": "doc-bosnia",
+  "version": "1.0.0-beta1",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "publish": "ENV='production' gulp upload",
+    "serve": "npx node-static -p 3001"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavpursche/doc-bosnia.git"
+  },
+  "author": "Gustav Pursche <pursche@posteo.de>",
+  "license": "MIT",
+  "homepage": "https://jib-collective.net/stories/bosnia/",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-awspublish": "^3.3.0",
+    "gulp-cloudfront-invalidate": "^0.1.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-header": "^2.0.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8",
+    "uglifyjs-webpack-plugin": "^1.1.8",
+    "webpack": "^4.0.0-beta.0",
+    "webpack-stream": "^4.0.0"
+  },
+  "dependencies": {
+    "domready": "^1.0.8",
+    "sass-mq": "^4.0.2"
+  }
+}

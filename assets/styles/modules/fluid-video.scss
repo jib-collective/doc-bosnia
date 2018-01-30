@@ -1,0 +1,18 @@
+.fluid-video {
+  background-color: rgba(0, 0, 0, .2);
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+  position: relative;
+  width: 100%;
+
+  > iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}

@@ -1,0 +1,44 @@
+.intro {
+  padding-top: 2.5rem;
+  text-align: right;
+
+  &__title {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 1;
+    margin-bottom: 4rem;
+    margin-right: 1.5rem;
+    margin-top: 0;
+    position: relative;
+    text-transform: uppercase;
+
+    &:before {
+      border-top: 45px solid rgba(254, 203, 0, .7);
+      content: ' ';
+      height: 1px;
+      position: absolute;
+      right: -6rem;
+      top: -.2rem;
+      width: 15rem;
+    }
+  }
+
+  &__title-category {
+    display: block;
+    font-size: 4.8rem;
+    font-weight: 800;
+    position: relative;
+    z-index: 100;
+  }
+
+  &__text {
+    font-family: Georgia;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 55rem;
+    text-align: left;
+  }
+}
