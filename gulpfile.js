@@ -19,7 +19,7 @@ const replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-const S3_PATH = '/iuventa/dist/';
+const S3_PATH = '/bosnia/dist/';
 const ENV = process.env.ENV || 'dev';
 let awsConfig;
 
