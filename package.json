@@ -30,10 +30,7 @@
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-util": "^3.0.8",
-    "uglifyjs-webpack-plugin": "^1.1.8",
-    "webpack": "^4.0.0-beta.0",
-    "webpack-stream": "^4.0.0"
+    "gulp-util": "^3.0.8"
   },
   "dependencies": {
     "domready": "^1.0.8",

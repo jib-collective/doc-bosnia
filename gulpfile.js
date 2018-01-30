@@ -7,7 +7,6 @@ const { exec } = require('child_process');
 const fs = require('fs');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
-const gulpWebpack = require('webpack-stream');
 const gutil = require('gulp-util');
 const header = require('gulp-header');
 const htmlmin = require('gulp-htmlmin');
@@ -18,7 +17,6 @@ const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const webpack = require('webpack');
 
 const S3_PATH = '/iuventa/dist/';
 const ENV = process.env.ENV || 'dev';
@@ -108,12 +106,6 @@ gulp.task('markup', ['styles'], () => {
     .pipe(gulp.dest('dist/markup/'));
 });
 
-gulp.task('scripts', () => {
-  return gulp.src('assets/scripts/app.js')
-    .pipe(gulpWebpack(require(`./webpack-config.${ENV}`), webpack))
-    .pipe(gulp.dest('dist/assets/scripts/'));
-});
-
 gulp.task('styles', () => {
   const vars = `
       $font-path: "${ASSET_PATH}/fonts/";
@@ -165,13 +157,11 @@ gulp.task('upload', ['build'], () => {
 
 gulp.task('watch', ['build',], () => {
   gulp.watch('assets/styles/**/*', ['markup']);
-  gulp.watch('assets/scripts/**/*', ['scripts']);
   gulp.watch([
     'markup/**/*.html',
   ], ['markup']);
 });
 
 gulp.task('build', [
-  'scripts',
   'markup',
 ]);
