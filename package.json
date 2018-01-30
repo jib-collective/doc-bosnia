@@ -17,6 +17,7 @@
   "license": "MIT",
   "homepage": "https://jib-collective.net/stories/bosnia/",
   "devDependencies": {
+    "concurrent-transform": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-awspublish": "^3.3.0",

@@ -12,6 +12,7 @@ const header = require('gulp-header');
 const htmlmin = require('gulp-htmlmin');
 const os = require('os');
 const path = require('path');
+const parallelize = require('concurrent-transform');
 const process = require('process');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
