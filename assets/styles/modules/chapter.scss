@@ -59,7 +59,7 @@
     }
 
     &:before {
-      border-top: 15px solid rgba(0, 35, 149, .7);
+      border-top: 15px solid rgba($color-1, .7);
       content: ' ';
       height: 1px;
       position: absolute;

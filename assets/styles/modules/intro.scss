@@ -18,7 +18,7 @@
     }
 
     &:before {
-      border-top: 45px solid rgba(254, 203, 0, .7);
+      border-top: 45px solid rgba($color-2, .7);
       content: ' ';
       height: 1px;
       position: absolute;
