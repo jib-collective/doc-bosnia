@@ -3,15 +3,19 @@
   text-align: right;
 
   &__title {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    font-size: 2.4rem;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-sans-serif-regular;
+    font-size: 1.4rem;
     line-height: 1;
-    margin-bottom: 4rem;
-    margin-right: 1.5rem;
+    margin-bottom: 3rem;
+    margin-right: 2.5rem;
     margin-top: 0;
     position: relative;
     text-transform: uppercase;
+
+    @include mq(tablet) {
+      font-size: 2.4rem;
+    }
 
     &:before {
       border-top: 45px solid rgba(254, 203, 0, .7);
@@ -26,19 +30,45 @@
 
   &__title-category {
     display: block;
-    font-size: 4.8rem;
-    font-weight: 800;
+    font-size: 3.2rem;
+    font-weight: $font-weight-sans-serif-bold;
     position: relative;
     z-index: 100;
+
+    @include mq(tablet) {
+      font-size: 4.8rem;
+    }
   }
 
   &__text {
-    font-family: Georgia;
-    font-size: 1.4rem;
+    font-family: $font-family-serif;
+    font-size: 1rem;
     line-height: 1.4;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 55rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
     text-align: left;
+
+    @include mq(tablet) {
+      font-size: 1.2rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 45rem;
+    }
+
+    > p {
+      margin-bottom: 0;
+    }
+
+    > p:first-child {
+      margin-top: 0;
+    }
+
+    > p:last-child {
+      margin-bottom: 0;
+    }
+
+    > p + p {
+      margin-top: .9rem;
+    }
   }
 }

@@ -1,1 +1,11 @@
-$mq-breakpoints: ();
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-family-serif: Georgia, serif;
+
+$font-weight-sans-serif-regular: 400;
+$font-weight-sans-serif-bold: 700;
+
+$font-weight-serif-regular: 400;
+
+$mq-breakpoints: (
+  tablet: 768px,
+);

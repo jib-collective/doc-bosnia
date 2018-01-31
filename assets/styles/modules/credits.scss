@@ -1,24 +1,70 @@
 .credits {
-  border-top: 5px solid rgba(254, 203, 0, .7);
   font-size: 1.2rem;
   margin-bottom: 6rem;
   margin-top: 6rem;
   padding-top: 2rem;
-  text-align: center;
+  position: relative;
+
+  &:before {
+    border-top: 10px solid rgba(254, 203, 0, .7);
+    content: '';
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 12rem;
+
+    @include mq(tablet) {
+      width: 18rem;
+    }
+  }
 
   &__item {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
+    font-family: $font-family-sans-serif;
+    font-size: .9rem;
+    font-weight: $font-weight-sans-serif-bold;
     line-height: 1.45;
     margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 0;
+    padding-left: 9rem;
+    position: relative;
+
+    @include mq(tablet) {
+      font-size: 1rem;
+      padding-left: 16rem;
+    }
 
     & + & {
-      margin-top: .25rem;
+      margin-top: .5rem;
+    }
+
+    a {
+      border-bottom: 2px solid rgba(254, 203, 0, .7);
+      color: currentColor;
+      text-decoration: none;
+      transition: padding 100ms ease;
+
+      &:hover,
+      &:focus {
+        padding-bottom: .1rem;
+      }
     }
   }
 
   &__item-role {
-    font-weight: 400;
+    display: inline-block;
+    font-weight: $font-weight-sans-serif-regular;
+    left: 0;
+    margin-left: 1rem;
+    margin-right: .75rem;
+    position: absolute;
+    text-align: right;
+    width: 7rem;
+
+    @include mq(tablet) {
+      margin-left: 5rem;
+      width: 10rem;
+    }
   }
 }
