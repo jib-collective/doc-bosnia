@@ -134,7 +134,7 @@ gulp.task('styles', () => {
 gulp.task('images', () => {
   return gulp.src([
     'assets/images/**/*',
-  ]).pipe(gulp.dest('dist/images/'));
+  ]).pipe(gulp.dest('dist/assets/images/'));
 });
 
 gulp.task('upload', ['build'], () => {
