@@ -8,7 +8,7 @@
   @include mq(tablet) {
     margin-left: 3.5rem;
     margin-right: 3.5rem;
-    margin-top: 4rem;
+    margin-top: 5rem;
   }
 
   @include mq(tablet) {
@@ -59,7 +59,7 @@
     }
 
     &:before {
-      border-top: 15px solid rgba($color-1, .7);
+      border-top: 15px solid $color-1;
       content: ' ';
       height: 1px;
       position: absolute;

@@ -1,5 +1,5 @@
 .intro {
-  padding-top: 2.5rem;
+  padding-top: 1rem;
   text-align: right;
 
   &__title {
@@ -7,7 +7,7 @@
     font-weight: $font-weight-sans-serif-regular;
     font-size: 1.4rem;
     line-height: 1;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     margin-right: 2.5rem;
     margin-top: 0;
     position: relative;
@@ -18,7 +18,7 @@
     }
 
     &:before {
-      border-top: 45px solid rgba($color-2, .7);
+      border-top: 45px solid $color-2;
       content: ' ';
       height: 1px;
       position: absolute;
