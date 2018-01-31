@@ -131,6 +131,12 @@ gulp.task('styles', () => {
       .pipe(gulp.dest('dist/assets/styles/'));
 });
 
+gulp.task('images', () => {
+  return gulp.src([
+    'assets/images/**/*',
+  ]).pipe(gulp.dest('dist/images/'));
+});
+
 gulp.task('upload', ['build'], () => {
   let publisher = awspublish.create(awsConfig.s3);
   const cacheTime = (60 * 60 * 24) * 14; // 14 days
@@ -164,5 +170,6 @@ gulp.task('watch', ['build',], () => {
 });
 
 gulp.task('build', [
+  'images',
   'markup',
 ]);
