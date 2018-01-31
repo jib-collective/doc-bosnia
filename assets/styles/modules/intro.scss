@@ -41,7 +41,8 @@
   }
 
   &__text {
-    font-family: $font-family-serif;
+    font-family: $font-family-sans-serif;
+    font-weight: $font-weight-sans-serif-regular;
     font-size: 1rem;
     line-height: 1.4;
     margin-left: 1.5rem;
@@ -49,10 +50,14 @@
     text-align: left;
 
     @include mq(tablet) {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-left: auto;
       margin-right: auto;
       max-width: 45rem;
+    }
+
+    > strong {
+      font-weight: $font-weight-sans-serif-bold;
     }
 
     > p {
