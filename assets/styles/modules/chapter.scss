@@ -116,16 +116,21 @@
   }
 
   &__video {
+    background-color: rgba(0, 0, 0, .2);
     display: flex;
     margin-left: .5rem;
     margin-top: 1.5rem;
-    min-height: 12rem;
     width: 100%;
 
     @include mq(tablet) {
       margin-top: 0;
-      min-height: 24rem;
       width: 65%;
     }
+  }
+
+  // fixes bad behavoir on FF with flexbox and fluid-video
+  &__video-fluid-container {
+    height: 100%;
+    width: 100%;
   }
 }
