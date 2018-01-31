@@ -1,1 +1,0 @@
-import domready from 'domready';
