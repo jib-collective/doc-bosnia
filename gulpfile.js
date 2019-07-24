@@ -1,63 +1,23 @@
 const autoprefixer = require('gulp-autoprefixer');
-const awspublish = require('gulp-awspublish');
-const cloudfront = require('gulp-cloudfront-invalidate');
 const concat = require('gulp-concat');
 const cssnano = require('gulp-cssnano');
-const { exec } = require('child_process');
 const fs = require('fs');
 const gulp = require('gulp');
 const gulpIf = require('gulp-if');
 const gutil = require('gulp-util');
 const header = require('gulp-header');
 const htmlmin = require('gulp-htmlmin');
-const os = require('os');
-const path = require('path');
-const parallelize = require('concurrent-transform');
 const process = require('process');
-const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
-const S3_PATH = '/bosnia/dist/';
 const ENV = process.env.ENV || 'dev';
-let awsConfig;
-
-try {
-  awsConfig = require('./aws.json');
-} catch(err) {
-  awsConfig = {
-    s3: {
-      region: process.env.S3_REGION,
-      params: {
-        Bucket: process.env.S3_PARAMS_BUCKET,
-        signatureVersion: process.env.S3_PARAMS_SIGNATUREVERSION,
-      },
-      accessKeyId: process.env.S3_ACCESSKEYID,
-      secretAccessKey: process.env.S3_SECRETACCESSKEY,
-    },
-
-    cloudfront: {
-      distributionId: process.env.CLOUDFRONT_DISTRIBUTIONID,
-    }
-  };
-}
-
-const cloudfrontConfig = {
-  accessKeyId: awsConfig.s3.accessKeyId,
-  secretAccessKey: awsConfig.s3.secretAccessKey,
-  region: awsConfig.s3.region,
-  bucket: awsConfig.s3.bucket,
-  distribution: awsConfig.cloudfront.distributionId,
-  paths: [
-    `/*`,
-  ],
-};
 
 let ASSET_PATH = '/dist/assets';
 
 if (ENV === 'production') {
-  ASSET_PATH = 'https://cdn.jib-collective.net/bosnia/dist/assets';
+  ASSET_PATH = '/assets';
 }
 
 gulp.task('markup', ['styles'], () => {
@@ -104,7 +64,7 @@ gulp.task('markup', ['styles'], () => {
       return '';
     }))
     .pipe(gulpIf(ENV === 'production', htmlmin()))
-    .pipe(gulp.dest('dist/markup/'));
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('styles', () => {
@@ -135,31 +95,6 @@ gulp.task('images', () => {
   return gulp.src([
     'assets/images/**/*',
   ]).pipe(gulp.dest('dist/assets/images/'));
-});
-
-gulp.task('upload', ['build'], () => {
-  let publisher = awspublish.create(awsConfig.s3);
-  const cacheTime = (60 * 60 * 24) * 14; // 14 days
-  const awsHeaders = {
-    'Cache-Control': `public, max-age=${cacheTime}, s-maxage=${cacheTime}`,
-  };
-  const gzippable = function(file) {
-    const match = file.path.match(/\.(html|css|js|ttf|otf)$/gi);
-    return match;
-  };
-
-  return gulp.src([
-    './dist/**/**/*',
-  ])
-    .pipe(rename((path) => {
-        path.dirname = `${S3_PATH}${path.dirname}`;
-        return path;
-    }))
-    .pipe(gulpIf(gzippable, awspublish.gzip()))
-    .pipe(publisher.cache())
-    .pipe(parallelize(publisher.publish(awsHeaders), 10))
-    .pipe(awspublish.reporter())
-    .pipe(cloudfront(cloudfrontConfig));
 });
 
 gulp.task('watch', ['build',], () => {

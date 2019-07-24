@@ -6,7 +6,6 @@
   "scripts": {
     "watch": "gulp watch",
     "build": "gulp build",
-    "publish": "ENV='production' gulp upload",
     "serve": "npx node-static -p 3001"
   },
   "repository": {
@@ -17,21 +16,16 @@
   "license": "MIT",
   "homepage": "https://jib-collective.net/stories/bosnia/",
   "devDependencies": {
-    "concurrent-transform": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.1.0",
-    "gulp-awspublish": "^3.3.0",
-    "gulp-cloudfront-invalidate": "^0.1.4",
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-header": "^2.0.1",
     "gulp-htmlmin": "^4.0.0",
     "gulp-if": "^2.0.2",
-    "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-util": "^3.0.8"
+    "gulp-sourcemaps": "^2.6.4"
   },
   "dependencies": {
     "domready": "^1.0.8",
